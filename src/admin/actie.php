@@ -27,6 +27,11 @@ if(isset($_POST['wijzig'])) {
     $query->bindValue(':naam', $_POST['naam']);
     $query->bindValue(':body', $_POST['body']);
     $query->bindValue(':prijs', $_POST['prijs']);
+    if($_POST['active'] == 'Active'){
+        $_POST['active'] = 'Active';
+    }else{
+        $_POST['active'] = 'Inactive';
+    }
     $query->bindValue(':active', $_POST['active']);
     $query->bindValue(':pid', $_GET['pid']);
     if($query->execute()) {
